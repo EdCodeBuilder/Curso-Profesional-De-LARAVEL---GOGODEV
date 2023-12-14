@@ -10,7 +10,7 @@
     </title>
 </head>
 <body>
-    @include('layouts._partials.menu')
+    @include('layouts._partials.menu') // partials
     @yield('content')
 </body>
 </html>
