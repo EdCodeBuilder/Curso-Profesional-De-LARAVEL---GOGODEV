@@ -1,6 +1,12 @@
 # Notas de curso de Laravel
 ***
 ## Tabla de contenido
+- [Notas de curso de Laravel](#notas-de-curso-de-laravel)
+  - [Tabla de contenido](#tabla-de-contenido)
+  - [Arquitectura del proyecto](#arquitectura-del-proyecto)
+  - [Estructura del proyecto](#estructura-del-proyecto)
+  - [Modelos, sistema de persistencia](#modelos-sistema-de-persistencia)
+
 ***
 ## Arquitectura del proyecto
 - Laravel por defecto soporta el patron de arquitectura **MVC**, pero tambien puede soportar otras arquitecturas.
@@ -31,13 +37,18 @@
 - **./app/models** : carpeta donde se encuentran todos los modelos de la aplicación.
 - **./app/controllers** : carpeta donde se encuentran todos los controladores.
 
-## Instalación
-```pyhton
-a = 2
-b = 3 + a
-print(b)
-print("Esto es un bloque de codigo python!")
-```
-## Uso
-## Tecnologías ocupadas
-## Licencias
+## Modelos, sistema de persistencia
+- **./database/migrations** : Laravel debe incluir la logica y los ficheros necesarios para construir todo el sistema de persistencia de forma agnositca, es decir que no se ejecuten consultas SQL directamente.
+- **.env** : en el archivo (env -> environment) se van a incluir todos datos de conexión a todos los sistemas de infraestructura.
+- Para la ejecucion de acciones en el sistema de pertisistencia se ejecuta el comando ```php artisan migrate``` este comando ejecuta los archivos de migracion que aun no se hubieran ejecutado.
+- La tabla **migrations** generada por laravel hace referencia al control de archivos que ha migrado.
+- El comando ```php artisan make:migration``` genera un archivo de migracion.
+- En el sigiente ejemplo, la convencion ```php artisan make:migration create_notes_table``` vemos que es una tabla notas, por convencion las tablas en migraciones se mencionan en plural.
+- Al generarse el archivo de migracion se pueden identificar 2 funciones principales up() y down(), los cuales se usan cuando se van a levantar o bajar estas tablas de nuestra DB y contienen toda la logica para ello, tambien podemos identificar el uso de la clase ```Schema``` que contiene diferentes metodos estáticos, por esa razon se accede con ellos con "::" por ejemplo ```Schema::create()``` para mas informacion se puede consultar el siguiente [link](https://laravel.com/api/9.x/Illuminate/Database/Schema/Builder.html).
+- **SIEMPRE** la crear un archivo de migracion hay que ejecutar el comando ```php artisan migrate```.
+- **Rollbacking** : tirar hacia atras un lote (batch) de migraciones. Para hacer un rollback de la ultima migración se puede ejecutar el siguiente comando ```php artisan migrate:rollback```
+- ```php artisan migrate:reset``` tira hacia atras todas las migraciones hechas.
+- ```php artisan migrate:rollback --batch=``` tira hacia atras ese lote de migracion específico.
+- ```php artisan migrate:refresh``` realiza un *reset* e inmediatamente un *migrate*.
+- ```php artisan make:migration update_notes_table``` con el nombre *update* estamos infiriendo una actualización a esa tabla.
+- ```Schema::table()``` realiza modificaciones sobre la tabla especificada.
