@@ -72,3 +72,4 @@
 
 ## Comandos combinados
 - ```php make:model Author --migration``` genera el modelo *Author* y tambien genera la migración *XXXX_XX_XX_XXXXXX_create_authors_table* respetando la convencion de nombres.
+- 
