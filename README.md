@@ -75,3 +75,4 @@
 - ```php make:model Author --migration``` genera el modelo *Author* y tambien genera la migración *XXXX_XX_XX_XXXXXX_create_authors_table* respetando la convencion de nombres.
 
 ## Vinculacion Ruta-Controlador-Vista
+- ```php artisan make:controller UserController``` genera un controlador *UserController*, se respeta la convencion de **PascalCase** para nombrar a los controlladores.
