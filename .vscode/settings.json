@@ -12,6 +12,19 @@
             "name": "modeldata-mariadb",
             "database": "modeldata",
             "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "controllers-mariadb",
+            "database": "controllers",
+            "username": "root"
         }
     ]
 }
