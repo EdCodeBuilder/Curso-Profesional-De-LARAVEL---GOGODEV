@@ -10,6 +10,7 @@
   - [Rollback](#rollback)
   - [Modelos](#modelos)
   - [Comandos combinados](#comandos-combinados)
+  - [Vinculacion Ruta-Controlador-Vista](#vinculacion-ruta-controlador-vista)
 
 ***
 ## Arquitectura del proyecto
@@ -72,4 +73,5 @@
 
 ## Comandos combinados
 - ```php make:model Author --migration``` genera el modelo *Author* y tambien genera la migración *XXXX_XX_XX_XXXXXX_create_authors_table* respetando la convencion de nombres.
-- 
+
+## Vinculacion Ruta-Controlador-Vista
