@@ -16,6 +16,7 @@
   - [Eloquent](#eloquent)
   - [SQL Raw](#sql-raw)
   - [Rutas con parametros](#rutas-con-parametros)
+  - [CRUD](#crud)
 
 ***
 ## Arquitectura del proyecto
@@ -96,3 +97,6 @@
 - ```Route::get('/product/{id}',[Controller::class, 'function'])->name('example');``` Este es un ejemplo de una ruta con un parametro dinamico *id* obligatorio.
 - ```Route::get('/product/{id?}',[Controller::class, 'function'])->name('example');``` Este es un ejemplo de una ruta con un parametro dinamico *id* opcional.
 - Se debe tener cuidado con el manejo de parametros dinamicos en las rutas y el orden de las rutas, porque podrian haber rutas que nunca se ejecuten (colision de rutas).
+
+## CRUD
+- **C**:create; **R**:read, **U**:update, **D**:delete.
