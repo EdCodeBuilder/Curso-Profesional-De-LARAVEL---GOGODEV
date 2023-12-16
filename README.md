@@ -15,6 +15,7 @@
   - [Insersion de datos](#insersion-de-datos)
   - [Eloquent](#eloquent)
   - [SQL Raw](#sql-raw)
+  - [Rutas con parametros](#rutas-con-parametros)
 
 ***
 ## Arquitectura del proyecto
@@ -90,3 +91,8 @@
 
 ## SQL Raw
 - ```DB::``` La clase DB permite realizar consultas con SQL puro.
+
+## Rutas con parametros
+- ```Route::get('/product/{id}',[Controller::class, 'function'])->name('example');``` Este es un ejemplo de una ruta con un parametro dinamico *id* obligatorio.
+- ```Route::get('/product/{id?}',[Controller::class, 'function'])->name('example');``` Este es un ejemplo de una ruta con un parametro dinamico *id* opcional.
+- Se debe tener cuidado con el manejo de parametros dinamicos en las rutas y el orden de las rutas, porque podrian haber rutas que nunca se ejecuten (colision de rutas).
