@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -11,7 +12,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        // $age = 30;
+        // $users = DB::select(DB::raw(" SELECT * FROM users WHERE age='$age' "));
+        $users = DB::select(DB::raw(" SELECT * FROM users "));
+        // $users = User::all();
         // $users = User::where('age', '>=', 18)->where('zip_code', 290909)->where()->where();  // caracteristica conocida del patron de diseño active record.
         // $users = User::where('age', '>=', 18)->orWhere('zip_code', 290909);
         // $users = User::where('age', '>=', 30)->orderBy('age', 'asc')->get(); // ordena por valor de columna, ascendente
@@ -25,6 +29,7 @@ class UserController extends Controller
 
     public function create() // metodo ecepcional para crear datos, usualmente no se hace asi.
     {
+        // DB::insert( DB::raw(" INSERT INTO users VALUE ... ") );
         $user = new User;
         $user->name = "Juanjo";
         $user->email = "demo@demo.com";

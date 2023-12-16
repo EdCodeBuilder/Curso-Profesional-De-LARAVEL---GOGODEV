@@ -14,6 +14,7 @@
   - [Consultas a modelos, paso de informacion y pintado](#consultas-a-modelos-paso-de-informacion-y-pintado)
   - [Insersion de datos](#insersion-de-datos)
   - [Eloquent](#eloquent)
+  - [SQL Raw](#sql-raw)
 
 ***
 ## Arquitectura del proyecto
@@ -86,3 +87,6 @@
 
 ## Eloquent
 - ```$users =User::where('age', '>=', 18)->where('zip_code', 290909)->where()->where();``` caracteristica conocida del patron de diseño active record, la concatenacion en consultas.
+
+## SQL Raw
+- ```DB::``` La clase DB permite realizar consultas con SQL puro.
