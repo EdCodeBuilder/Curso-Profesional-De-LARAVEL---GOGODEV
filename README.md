@@ -11,6 +11,7 @@
   - [Modelos](#modelos)
   - [Comandos combinados](#comandos-combinados)
   - [Vinculacion Ruta-Controlador-Vista](#vinculacion-ruta-controlador-vista)
+  - [Consultas a modelos, paso de informacion y pintado](#consultas-a-modelos-paso-de-informacion-y-pintado)
 
 ***
 ## Arquitectura del proyecto
@@ -76,3 +77,5 @@
 
 ## Vinculacion Ruta-Controlador-Vista
 - ```php artisan make:controller UserController``` genera un controlador *UserController*, se respeta la convencion de **PascalCase** para nombrar a los controlladores.
+
+## Consultas a modelos, paso de informacion y pintado
