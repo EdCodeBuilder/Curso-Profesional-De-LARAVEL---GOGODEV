@@ -12,6 +12,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        // $users = User::where('age', '>=', 18)->where('zip_code', 290909)->where()->where();  // caracteristica conocida del patron de diseño active record.
+        // $users = User::where('age', '>=', 18)->orWhere('zip_code', 290909);
+        // $users = User::where('age', '>=', 30)->orderBy('age', 'asc')->get(); // ordena por valor de columna, ascendente
+        // $users = User::where('age', '>=', 30)->limit(5, 10)->get(); // limita los resultados entregados a los 5 primeros pero despues del offset de 10 registros, es decir, se salta 10 registros y se trae los 5 primeros despues
+        // $users = User::where('age', '>=', 30)->first();
+        //$user = User::find(1); // busca por id
+        //$user = User::findOrFail(); // encuentralo y si no lanza un error.
         return view('user.index', compact('users')); // evitamos la duplicidad con el metodo compact()
         // return view('user.index', ["users" => $users]);
     }

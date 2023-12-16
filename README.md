@@ -12,6 +12,8 @@
   - [Comandos combinados](#comandos-combinados)
   - [Vinculacion Ruta-Controlador-Vista](#vinculacion-ruta-controlador-vista)
   - [Consultas a modelos, paso de informacion y pintado](#consultas-a-modelos-paso-de-informacion-y-pintado)
+  - [Insersion de datos](#insersion-de-datos)
+  - [Eloquent](#eloquent)
 
 ***
 ## Arquitectura del proyecto
@@ -79,3 +81,8 @@
 - ```php artisan make:controller UserController``` genera un controlador *UserController*, se respeta la convencion de **PascalCase** para nombrar a los controlladores.
 
 ## Consultas a modelos, paso de informacion y pintado
+
+## Insersion de datos
+
+## Eloquent
+- ```$users =User::where('age', '>=', 18)->where('zip_code', 290909)->where()->where();``` caracteristica conocida del patron de diseño active record, la concatenacion en consultas.
