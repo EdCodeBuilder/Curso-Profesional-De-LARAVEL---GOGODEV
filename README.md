@@ -100,3 +100,4 @@
 
 ## CRUD
 - **C**:create; **R**:read, **U**:update, **D**:delete.
+- ```php artisan make:request NoteRequest``` Crea una custom request, evitamos duplicacion de codigo en controlador.

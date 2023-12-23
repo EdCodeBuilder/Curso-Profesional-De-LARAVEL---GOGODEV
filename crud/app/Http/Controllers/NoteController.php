@@ -22,6 +22,11 @@ class NoteController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        // TODO Validar el contenido que recive el controller
+        $request->validate([
+            'title' => 'required|max:255|min:3',
+            'description' => 'required|max:255|min:3'
+        ]);
         Note::create($request->all()); // Atajo mayor.
 
         /* Note::create([
@@ -46,6 +51,11 @@ class NoteController extends Controller
     public function update(Request $request, Note $note): RedirectResponse
     // public function update(Request $request, $note)
     {
+        // TODO Validar el contenido que recive el controller
+        $request->validate([
+            'title' => 'required|max:255|min:3',
+            'description' => 'required|max:255|min:3' // Se puede validar en el controlador pero no  se debe
+        ]);
         $note->update($request->all());
         /* $note = Note::find($note);
         $note->title = $request->title;
