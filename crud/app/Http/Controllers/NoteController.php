@@ -40,7 +40,7 @@ class NoteController extends Controller
         $note->description = $request->description;
         $note->save(); */
 
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('success', 'Note created');
     }
 
     public function edit(Note $note): View
@@ -62,7 +62,7 @@ class NoteController extends Controller
         $note->title = $request->title;
         $note->description = $request->description;
         $note->save(); */
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('success', 'Note updated');
     }
 
     public function show(Note $note): View
@@ -73,6 +73,6 @@ class NoteController extends Controller
     public function destroy(Note $note): RedirectResponse
     {
         $note->delete();
-        return redirect()->route('note.index');
+        return redirect()->route('note.index')->with('danger', 'Note deleted');
     }
 }

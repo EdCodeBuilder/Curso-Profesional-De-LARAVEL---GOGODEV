@@ -17,6 +17,9 @@
   - [SQL Raw](#sql-raw)
   - [Rutas con parametros](#rutas-con-parametros)
   - [CRUD](#crud)
+  - [Validacion y custom request](#validacion-y-custom-request)
+  - [Gestion de errores y mensajes de sesion](#gestion-de-errores-y-mensajes-de-sesion)
+  - [Rutas y controladores resource](#rutas-y-controladores-resource)
 
 ***
 ## Arquitectura del proyecto
@@ -100,4 +103,16 @@
 
 ## CRUD
 - **C**:create; **R**:read, **U**:update, **D**:delete.
+
+## Validacion y custom request
 - ```php artisan make:request NoteRequest``` Crea una custom request, evitamos duplicacion de codigo en controlador.
+
+## Gestion de errores y mensajes de sesion
+- Directiva ```@error('')``` en la vista blade para los mensajes de error.
+- Mensajes de sesion se pueden inplementar con un **_partials/messages.blade.php** con la clase Sessions ```$message = Session::get('success')```, se realiza un **@include()** ```@include('layouts._partials.messages')```.
+
+## Rutas y controladores resource
+- Se puede simplificar mas el proceso de creacion de un CRUD.
+- La ruta **resource** define rutas para cada una de las acciones del CRUD ```Route::resource('/post', PostController::class);``` index, store, create, show, update, destroy, edit. 
+- El comando para listar las rutas de la aplicacion es ```php artisan route:list```
+- El comando para generar un controlador que gobierna un recurso ```php artisan make:controller PostController --resource```
