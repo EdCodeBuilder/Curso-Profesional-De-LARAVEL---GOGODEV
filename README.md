@@ -5,6 +5,7 @@
   - [Tabla de contenido](#tabla-de-contenido)
   - [Arquitectura del proyecto](#arquitectura-del-proyecto)
   - [Estructura del proyecto](#estructura-del-proyecto)
+  - [Generación de proyecto laravel 9.0](#generación-de-proyecto-laravel-90)
   - [Configuración de la capa de persistencia](#configuración-de-la-capa-de-persistencia)
   - [Migraciones](#migraciones)
   - [Rollback](#rollback)
@@ -50,6 +51,9 @@
 - **./resources/views** : carpeta donde se encuentran todas las vistas que va a servir Laravel.
 - **./app/models** : carpeta donde se encuentran todos los modelos de la aplicación.
 - **./app/controllers** : carpeta donde se encuentran todos los controladores.
+
+## Generación de proyecto laravel 9.0
+- ```composer create-project laravel/laravel:^9.x project-name```
 
 ## Configuración de la capa de persistencia
 - **./database/migrations** : Laravel debe incluir la logica y los ficheros necesarios para construir todo el sistema de persistencia de forma agnositca, es decir que no se ejecuten consultas SQL directamente.
