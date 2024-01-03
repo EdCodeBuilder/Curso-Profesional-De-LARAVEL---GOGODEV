@@ -21,6 +21,7 @@
   - [Validacion y custom request](#validacion-y-custom-request)
   - [Gestion de errores y mensajes de sesion](#gestion-de-errores-y-mensajes-de-sesion)
   - [Rutas y controladores resource](#rutas-y-controladores-resource)
+  - [API](#api)
 
 ***
 ## Arquitectura del proyecto
@@ -120,3 +121,6 @@
 - La ruta **resource** define rutas para cada una de las acciones del CRUD ```Route::resource('/post', PostController::class);``` index, store, create, show, update, destroy, edit. 
 - El comando para listar las rutas de la aplicacion es ```php artisan route:list```
 - El comando para generar un controlador que gobierna un recurso ```php artisan make:controller PostController --resource```
+
+## API
+- ```php artisan make:model NameModel --migration``` genera un modelo ```NameModel``` con su respectiva migración.
