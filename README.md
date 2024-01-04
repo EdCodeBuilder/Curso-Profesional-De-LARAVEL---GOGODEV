@@ -124,3 +124,4 @@
 
 ## API
 - ```php artisan make:model NameModel --migration``` genera un modelo ```NameModel``` con su respectiva migración.
+- ```php artisan make:controller NoteController --resource``` genera un controlador con las acciones CRUD para el ejemplo.
