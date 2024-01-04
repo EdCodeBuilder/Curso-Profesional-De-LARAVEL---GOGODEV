@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Note;
+use App\Http\Requests\NoteRequest;
 
 class NoteController extends Controller
 {
@@ -23,20 +24,12 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function store(NoteRequest $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        Note::create($request->all());
+        return response()->json([
+            'success' => true
+        ], 201);
     }
 
     /**
@@ -47,18 +40,8 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $note = Note::find($id);
+        return response()->json($note, 200);
     }
 
     /**
@@ -68,9 +51,16 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NoteRequest $request, $id)
     {
-        //
+        $note = Note::find($id);
+        $note->title = $request->title;
+        $note->content = $request->content;
+        $note->save();
+
+        return response()->json([
+            'success' => true
+        ], 200);
     }
 
     /**
@@ -81,6 +71,9 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Note::find($id)->delete();
+        return response()->json([
+            'success' => true
+        ], 200);
     }
 }
