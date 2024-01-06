@@ -45,6 +45,7 @@ class NoteController extends Controller
             // 'data' => $note
             'data' => new NoteResource($note)
         ], 200);
+        // End of sixth episode
     }
 
     public function destroy($id):JsonResponse
