@@ -2,56 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Note;
 use App\Http\Requests\NoteRequest;
+use Illuminate\Http\JsonResponse;
+use App\Http\Resources\NoteResource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class NoteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index():JsonResource
     {
-        $notes = Note::all();
-        return response()->json($notes, 200);
+        // return response()->json(Note::all(), 200);
+        return NoteResource::collection(Note::all()); // uso del NoteResource para la manipulacion de la colleccion.
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(NoteRequest $request)
+    public function store(NoteRequest $request):JsonResponse
     {
-        Note::create($request->all());
+        $note = Note::create($request->all());
         return response()->json([
-            'success' => true
+            'success' => true,
+            // 'data' => $note
+            'data'=> new NoteResource($note)
         ], 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    // public function show($id):JsonResponse
+    public function show($id):JsonResource
     {
-        $note = Note::find($id);
-        return response()->json($note, 200);
+        // return response()->json(Note::find($id), 200);
+        return new NoteResource(Note::find($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(NoteRequest $request, $id)
+    public function update(NoteRequest $request, $id):JsonResponse
     {
         $note = Note::find($id);
         $note->title = $request->title;
@@ -59,17 +41,13 @@ class NoteController extends Controller
         $note->save();
 
         return response()->json([
-            'success' => true
+            'success' => true,
+            // 'data' => $note
+            'data' => new NoteResource($note)
         ], 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy($id):JsonResponse
     {
         Note::find($id)->delete();
         return response()->json([
